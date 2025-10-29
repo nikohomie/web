@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mi página web profesional">
-    <title>Mi Página Web</title>
+    <meta name="description" content="Electricista de Emergencia - Servicio 24/7 en toda la región. Reparaciones eléctricas rápidas y profesionales.">
+    <meta name="keywords" content="electricista, emergencia, 24/7, reparación eléctrica, instalación eléctrica">
+    <title>Electricista de Emergencia 24/7 | Servicio Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,212 +14,1401 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: #FF6B00;
+            --dark-color: #1a1a1a;
+            --light-color: #f4f4f4;
+            --white: #ffffff;
+            --gray: #666;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: var(--dark-color);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
+        /* Header & Navigation */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            text-align: center;
+            background: var(--dark-color);
+            color: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        h1 {
-            color: #667eea;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        .top-bar {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            padding: 10px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .subtitle {
-            color: #666;
-            font-size: 1.2rem;
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .content {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+        .emergency-call {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .section {
-            margin-bottom: 2rem;
+        .emergency-call i {
+            animation: pulse 2s infinite;
         }
 
-        h2 {
-            color: #764ba2;
-            margin-bottom: 1rem;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        nav {
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            color: white;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
             cursor: pointer;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
         }
 
-        .card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a1a" width="1200" height="600"/><path fill="%23FFB800" opacity="0.1" d="M0 300L50 280L100 320L150 290L200 310L250 280L300 300L350 270L400 290L450 310L500 280L550 300L600 270L650 290L700 310L750 280L800 300L850 270L900 290L950 310L1000 280L1050 300L1100 270L1150 290L1200 310V600H0V300Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero-content .highlight {
+            color: var(--primary-color);
+            text-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s;
         }
 
         .btn {
             display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 1.1rem;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
-            margin-top: 1rem;
         }
 
-        .btn:hover {
-            background: #764ba2;
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            box-shadow: 0 5px 20px rgba(255, 184, 0, 0.4);
         }
 
-        footer {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1.5rem;
-            border-radius: 10px;
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark-color);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .counter {
-            font-size: 1.2rem;
-            color: #667eea;
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2a2a2a 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.3);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
             margin-top: 1rem;
-            font-weight: bold;
         }
 
+        .service-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card ul li:before {
+            content: '⚡ ';
+            color: var(--primary-color);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-color);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            padding: 2rem;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-color);
+        }
+
+        .pricing-features li i {
+            color: var(--success);
+            margin-right: 10px;
+        }
+
+        .featured {
+            position: relative;
+            transform: scale(1.05);
+        }
+
+        .featured .pricing-header {
+            background: linear-gradient(135deg, var(--secondary-color), #ff4500);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 250px;
+            background: linear-gradient(135deg, var(--dark-color), #2a2a2a);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::before {
+            content: '🔌';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 2rem 1rem 1rem;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--dark-color);
+            color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stars {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--light-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.5rem 0;
+        }
+
+        .footer-section ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 130px;
+                flex-direction: column;
+                background: var(--dark-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content h1 {
                 font-size: 2rem;
             }
 
-            .cards {
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .contact-container {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .featured {
+                transform: scale(1);
+            }
+
+            .top-bar .container {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .emergency-call {
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Bienvenido a Mi Página Web</h1>
-            <p class="subtitle">Diseño moderno y responsivo</p>
-        </header>
-
-        <div class="content">
-            <section class="section">
-                <h2>Acerca de este Proyecto</h2>
-                <p>Esta es una página web moderna creada con HTML, CSS y JavaScript. Cuenta con un diseño responsivo que se adapta a cualquier dispositivo.</p>
-                <button class="btn" onclick="mostrarMensaje()">Interactuar</button>
-            </section>
-
-            <section class="section">
-                <h2>Características</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Diseño Responsivo</h3>
-                        <p>Se adapta perfectamente a dispositivos móviles, tablets y computadoras de escritorio.</p>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="emergency-call">
+                    <i class="fas fa-phone-volume"></i>
+                    <span>EMERGENCIAS 24/7: <strong>+56 9 1234 5678</strong></span>
+                </div>
+                <div>
+                    <i class="fas fa-clock"></i> Disponible las 24 horas
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <i class="fas fa-bolt"></i>
+                        ElectriPro
                     </div>
-                    <div class="card">
-                        <h3>Moderno</h3>
-                        <p>Utiliza las últimas tendencias en diseño web con gradientes y efectos visuales atractivos.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Interactivo</h3>
-                        <p>Incluye JavaScript para una experiencia dinámica e interactiva con el usuario.</p>
+                    <ul class="nav-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#trabajos">Trabajos</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
-            </section>
+            </div>
+        </nav>
+    </header>
 
-            <section class="section">
-                <h2>Contador de Visitas</h2>
-                <p>Has hecho clic en el botón:</p>
-                <div class="counter" id="contador">0 veces</div>
-            </section>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Electricista de <span class="highlight">Emergencia 24/7</span></h1>
+                <p>Servicio profesional y rápido para todas tus necesidades eléctricas. Atención inmediata en toda la región.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+56912345678" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Llamar Ahora
+                    </a>
+                    <a href="#contacto" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Solicitar Cotización
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2025 Mi Página Web. Creado con HTML, CSS y JavaScript.</p>
-        </footer>
-    </div>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <p class="section-subtitle">Somos expertos en soluciones eléctricas con más de 15 años de experiencia</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Disponibles 24/7</h3>
+                    <p>Atención inmediata cualquier día, cualquier hora. Siempre listos para emergencias.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificados</h3>
+                    <p>Electricistas certificados y con licencia SEC. Trabajos garantizados.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Respuesta Rápida</h3>
+                    <p>Llegamos en menos de 30 minutos en casos de emergencia.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Precios Justos</h3>
+                    <p>Cotizaciones transparentes sin sorpresas. Mejor relación calidad-precio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Nuestros Servicios</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Soluciones eléctricas completas para hogares y empresas</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Emergencias Eléctricas</h3>
+                    <p>Atención inmediata para:</p>
+                    <ul>
+                        <li>Cortes de luz</li>
+                        <li>Cortocircuitos</li>
+                        <li>Chispas o humo</li>
+                        <li>Fusibles quemados</li>
+                        <li>Problemas urgentes</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Instalaciones Residenciales</h3>
+                    <p>Servicios completos para tu hogar:</p>
+                    <ul>
+                        <li>Instalación de enchufes</li>
+                        <li>Luminarias y lámparas</li>
+                        <li>Tableros eléctricos</li>
+                        <li>Interruptores</li>
+                        <li>Cableado completo</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Servicios Comerciales</h3>
+                    <p>Para empresas y negocios:</p>
+                    <ul>
+                        <li>Instalaciones industriales</li>
+                        <li>Mantenimiento preventivo</li>
+                        <li>Certificaciones SEC</li>
+                        <li>Proyectos eléctricos</li>
+                        <li>Auditorías eléctricas</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Reparaciones</h3>
+                    <p>Solucionamos cualquier problema:</p>
+                    <ul>
+                        <li>Reparación de fallas</li>
+                        <li>Cambio de cables</li>
+                        <li>Arreglo de cortocircuitos</li>
+                        <li>Actualización de sistemas</li>
+                        <li>Diagnóstico técnico</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Seguridad Eléctrica</h3>
+                    <p>Protege tu propiedad:</p>
+                    <ul>
+                        <li>Puesta a tierra</li>
+                        <li>Interruptores diferenciales</li>
+                        <li>Protección contra sobretensión</li>
+                        <li>Revisión de instalaciones</li>
+                        <li>Normas de seguridad</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Iluminación</h3>
+                    <p>Soluciones de iluminación:</p>
+                    <ul>
+                        <li>Instalación de LED</li>
+                        <li>Iluminación decorativa</li>
+                        <li>Sensores de movimiento</li>
+                        <li>Iluminación exterior</li>
+                        <li>Diseño de iluminación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="precios">
+        <div class="container">
+            <h2 class="section-title">Planes y Precios</h2>
+            <p class="section-subtitle">Elige el plan que mejor se adapte a tus necesidades</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Básico</h3>
+                        <div class="price">$25.000 <span>CLP</span></div>
+                        <p>Ideal para reparaciones simples</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Visita técnica</li>
+                            <li><i class="fas fa-check"></i> Diagnóstico</li>
+                            <li><i class="fas fa-check"></i> 1 hora de trabajo</li>
+                            <li><i class="fas fa-check"></i> Materiales básicos</li>
+                            <li><i class="fas fa-check"></i> Garantía 30 días</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; text-align: center;">Contratar</a>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Profesional</h3>
+                        <div class="price">$50.000 <span>CLP</span></div>
+                        <p>Más popular</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Todo lo del plan Básico</li>
+                            <li><i class="fas fa-check"></i> 3 horas de trabajo</li>
+                            <li><i class="fas fa-check"></i> Materiales incluidos</li>
+                            <li><i class="fas fa-check"></i> Certificación SEC</li>
+                            <li><i class="fas fa-check"></i> Garantía 90 días</li>
+                            <li><i class="fas fa-check"></i> Prioridad en emergencias</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; text-align: center;">Contratar</a>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Empresarial</h3>
+                        <div class="price">$150.000 <span>CLP</span></div>
+                        <p>Para negocios y empresas</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Todo lo del plan Profesional</li>
+                            <li><i class="fas fa-check"></i> Trabajo ilimitado</li>
+                            <li><i class="fas fa-check"></i> Mantenimiento mensual</li>
+                            <li><i class="fas fa-check"></i> Certificaciones completas</li>
+                            <li><i class="fas fa-check"></i> Garantía 1 año</li>
+                            <li><i class="fas fa-check"></i> Atención preferente 24/7</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; text-align: center;">Contratar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="trabajos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Trabajos</h2>
+            <p class="section-subtitle">Galería de proyectos realizados con éxito</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Instalación Residencial</h4>
+                        <p>Casa completa en Las Condes</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Tablero Industrial</h4>
+                        <p>Empresa en Pudahuel</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Iluminación LED</h4>
+                        <p>Oficinas en Providencia</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Emergencia Nocturna</h4>
+                        <p>Reparación urgente</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Sistema Comercial</h4>
+                        <p>Local comercial en Maipú</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Certificación SEC</h4>
+                        <p>Departamento en Ñuñoa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Lo Que Dicen Nuestros Clientes</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Testimonios reales de clientes satisfechos</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Excelente servicio de emergencia. Llegaron en 20 minutos y resolvieron el problema rápidamente. Muy profesionales y con precios justos. 100% recomendados."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div>
+                            <strong>María González</strong><br>
+                            <small>Las Condes</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Contraté sus servicios para la instalación eléctrica completa de mi oficina. Trabajo impecable, certificación SEC incluida. Muy confiables."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div>
+                            <strong>Juan Pérez</strong><br>
+                            <small>Providencia</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Tuve una emergencia a las 3 AM y respondieron inmediatamente. Personal muy capacitado y amable. Definitivamente los volveré a llamar."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AR</div>
+                        <div>
+                            <strong>Andrea Rodríguez</strong><br>
+                            <small>Ñuñoa</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="section-subtitle">Estamos listos para atenderte. Solicita tu cotización gratuita</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Teléfono</strong><br>
+                            +56 9 1234 5678
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            contacto@electripro.cl
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Dirección</strong><br>
+                            Av. Principal 1234, Santiago
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Horario</strong><br>
+                            24 horas, 7 días a la semana
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Tipo de Servicio *</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Seleccione un servicio</option>
+                                <option value="emergencia">Emergencia</option>
+                                <option value="instalacion">Instalación</option>
+                                <option value="reparacion">Reparación</option>
+                                <option value="mantenimiento">Mantenimiento</option>
+                                <option value="certificacion">Certificación</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ElectriPro</h3>
+                    <p>Tu electricista de confianza disponible 24/7. Más de 15 años de experiencia brindando soluciones eléctricas profesionales.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#servicios">Emergencias 24/7</a></li>
+                        <li><a href="#servicios">Instalaciones</a></li>
+                        <li><a href="#servicios">Reparaciones</a></li>
+                        <li><a href="#servicios">Mantenimiento</a></li>
+                        <li><a href="#servicios">Certificaciones SEC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#trabajos">Trabajos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +56 9 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> contacto@electripro.cl</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Santiago, Chile</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Disponible</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ElectriPro - Electricista de Emergencia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        let contador = 0;
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-        function mostrarMensaje() {
-            contador++;
-            document.getElementById('contador').textContent = contador + (contador === 1 ? ' vez' : ' veces');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
 
-            const mensajes = [
-                '¡Genial! Gracias por interactuar',
-                '¡Excelente! Sigue explorando',
-                '¡Fantástico! Te está gustando',
-                '¡Increíble! Sigues aquí',
-                '¡Wow! Eres persistente'
-            ];
-
-            const mensaje = mensajes[Math.min(contador - 1, mensajes.length - 1)];
-            alert(mensaje);
-        }
-
-        // Animación de entrada
-        window.addEventListener('load', function() {
-            const elements = document.querySelectorAll('header, .content, footer');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(20px)';
-                    el.style.transition = 'all 0.6s ease';
-
-                    setTimeout(() => {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }, 100);
-                }, index * 200);
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             });
         });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 130;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Validation and Submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Basic validation
+            if (!nombre || !email || !telefono || !servicio || !mensaje) {
+                alert('Por favor, complete todos los campos requeridos.');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, ingrese un email válido.');
+                return;
+            }
+
+            // Phone validation (basic Chilean format)
+            const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/;
+            if (!phoneRegex.test(telefono)) {
+                alert('Por favor, ingrese un número de teléfono válido.');
+                return;
+            }
+
+            // Simulate form submission
+            alert(`¡Gracias ${nombre}! Tu mensaje ha sido enviado exitosamente.\n\nNos pondremos en contacto contigo pronto al ${telefono}.`);
+
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .service-card, .pricing-card, .testimonial-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter Animation for Stats (if you want to add stats)
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+
+        // Add active state to navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Gallery Item Click (could open modal in production)
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                alert('En una versión completa, esto abriría una galería con más imágenes del proyecto.');
+            });
+        });
+
+        // Add hover effect to cards
+        const cards = document.querySelectorAll('.feature-card, .service-card, .pricing-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Emergency call button animation
+        setInterval(() => {
+            const emergencyCall = document.querySelector('.emergency-call');
+            emergencyCall.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                emergencyCall.style.transform = 'scale(1)';
+            }, 200);
+        }, 3000);
+
+        // Log page load
+        console.log('ElectriPro - Electricista de Emergencia 24/7');
+        console.log('Página web cargada correctamente');
     </script>
 </body>
 </html>
