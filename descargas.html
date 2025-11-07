@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargas - Capacitación Java Spring Boot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5cb85c;
+            --secondary-color: #6db33f;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --white: #ffffff;
+            --gray: #7f8c8d;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        header h1 i {
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .download-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .download-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .version {
+            display: inline-block;
+            background: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .download-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .download-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .download-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-info i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(92, 184, 92, 0.4);
+        }
+
+        .download-btn i {
+            font-size: 1.2rem;
+        }
+
+        .instructions {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .instructions h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 1.5rem;
+        }
+
+        .instructions li {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .alert i {
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .alert-content h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-content p {
+            color: var(--gray);
+            margin: 0;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+                flex-direction: column;
+            }
+
+            header h1 i {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 2rem 1rem;
+            }
+
+            .downloads-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <i class="fab fa-java"></i>
+                Capacitación Java Spring Boot
+            </h1>
+            <p>Descarga los instaladores necesarios para comenzar</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Bienvenido a la sección de descargas</h2>
+                <p>Aquí encontrarás todos los instaladores y herramientas necesarias para la capacitación de Java Spring Boot. Descarga cada componente y sigue las instrucciones de instalación.</p>
+            </div>
+
+            <div class="downloads-grid">
+                <!-- Java JDK -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3>Java JDK</h3>
+                    <div class="version">Version 17 LTS</div>
+                    <p>Kit de Desarrollo de Java necesario para compilar y ejecutar aplicaciones Java</p>
+                    <div class="download-info">
+                        <div>
+                            <i class="fas fa-microchip"></i>
+                            <span>Windows / Linux / Mac</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-hdd"></i>
+                            <span>~150 MB</span>
+                        </div>
+                    </div>
+                    <a href="./instaladores/jdk-17.exe" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Descargar JDK
+                    </a>
+                </div>
+
+                <!-- Spring Boot CLI -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Spring Boot CLI</h3>
+                    <div class="version">Version 3.2.0</div>
+                    <p>Herramienta de línea de comandos para crear y ejecutar aplicaciones Spring Boot rápidamente</p>
+                    <div class="download-info">
+                        <div>
+                            <i class="fas fa-microchip"></i>
+                            <span>Multiplataforma</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-hdd"></i>
+                            <span>~25 MB</span>
+                        </div>
+                    </div>
+                    <a href="./instaladores/spring-boot-cli.zip" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Descargar Spring CLI
+                    </a>
+                </div>
+
+                <!-- IntelliJ IDEA -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>IntelliJ IDEA</h3>
+                    <div class="version">Community Edition</div>
+                    <p>IDE profesional para desarrollo Java con soporte completo para Spring Boot</p>
+                    <div class="download-info">
+                        <div>
+                            <i class="fas fa-microchip"></i>
+                            <span>Windows / Linux / Mac</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-hdd"></i>
+                            <span>~900 MB</span>
+                        </div>
+                    </div>
+                    <a href="./instaladores/intellij-idea-community.exe" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Descargar IntelliJ
+                    </a>
+                </div>
+
+                <!-- Maven -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Apache Maven</h3>
+                    <div class="version">Version 3.9.5</div>
+                    <p>Herramienta de gestión de proyectos y construcción para aplicaciones Java</p>
+                    <div class="download-info">
+                        <div>
+                            <i class="fas fa-microchip"></i>
+                            <span>Multiplataforma</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-hdd"></i>
+                            <span>~10 MB</span>
+                        </div>
+                    </div>
+                    <a href="./instaladores/apache-maven.zip" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Descargar Maven
+                    </a>
+                </div>
+
+                <!-- PostgreSQL -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>PostgreSQL</h3>
+                    <div class="version">Version 16</div>
+                    <p>Sistema de gestión de bases de datos relacional para tus aplicaciones Spring Boot</p>
+                    <div class="download-info">
+                        <div>
+                            <i class="fas fa-microchip"></i>
+                            <span>Windows / Linux / Mac</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-hdd"></i>
+                            <span>~250 MB</span>
+                        </div>
+                    </div>
+                    <a href="./instaladores/postgresql-16.exe" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Descargar PostgreSQL
+                    </a>
+                </div>
+
+                <!-- Postman -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3>Postman</h3>
+                    <div class="version">Última versión</div>
+                    <p>Herramienta para probar y documentar APIs REST de tus aplicaciones</p>
+                    <div class="download-info">
+                        <div>
+                            <i class="fas fa-microchip"></i>
+                            <span>Windows / Linux / Mac</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-hdd"></i>
+                            <span>~120 MB</span>
+                        </div>
+                    </div>
+                    <a href="./instaladores/postman.exe" class="download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Descargar Postman
+                    </a>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h2>
+                    <i class="fas fa-list-check"></i>
+                    Instrucciones de Instalación
+                </h2>
+                <ol>
+                    <li><strong>Java JDK:</strong> Instala primero el JDK. Durante la instalación, asegúrate de configurar la variable de entorno JAVA_HOME.</li>
+                    <li><strong>IntelliJ IDEA:</strong> Instala el IDE. Es recomendable usar la versión Community que es gratuita y completa.</li>
+                    <li><strong>Maven:</strong> Descomprime Maven en una carpeta y agrega la carpeta bin a tu PATH del sistema.</li>
+                    <li><strong>Spring Boot CLI:</strong> Descomprime y agrega al PATH. Verifica con el comando: <code>spring --version</code></li>
+                    <li><strong>PostgreSQL:</strong> Instala la base de datos. Anota el usuario y contraseña que configures durante la instalación.</li>
+                    <li><strong>Postman:</strong> Instala Postman para probar las APIs que desarrollaremos.</li>
+                </ol>
+            </div>
+
+            <div class="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="alert-content">
+                    <h4>Importante</h4>
+                    <p>Asegúrate de descargar e instalar todos los componentes antes de comenzar la capacitación. Si tienes problemas con alguna instalación, contacta al instructor.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Capacitación Java Spring Boot | Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animación al cargar
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.download-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'all 0.5s ease';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 100);
+            });
+        });
+
+        // Confirmar descarga
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const softwareName = btn.closest('.download-card').querySelector('h3').textContent;
+                console.log(`Descargando: ${softwareName}`);
+
+                // Mostrar mensaje de descarga
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Descargando...';
+                btn.style.pointerEvents = 'none';
+
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Descarga iniciada';
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.pointerEvents = 'auto';
+                    }, 2000);
+                }, 1000);
+            });
+        });
+
+        // Efecto parallax suave en el scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const container = document.querySelector('.container');
+            container.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+    </script>
+</body>
+</html>
